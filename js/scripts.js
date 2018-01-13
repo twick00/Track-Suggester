@@ -1,21 +1,34 @@
 var questionInfo = [{
-    "question": "question1",
-    "answer": ["answer1", "answer2", "answer3", "answer4"],
-    "value": 0,
-    "name": "Test1"
-},
-{
-    "question": "question1",
-    "answer": ["answer1", "answer2", "answer3", "answer4"],
-    "value": 0,
-    "name": "Test2"
-},
-{
-    "question": "question1",
-    "answer": ["answer1", "answer2", "answer3", "answer4"],
-    "value": 0,
-    "name": "Test3"
-}]
+        "question": "question1",
+        "answer": [["answer1", "track1"],
+            ["answer2", "track2"],
+            ["answer3", "track3"],
+            ["answer4", "track4"]
+        ],
+        "name": "Test1"
+    },
+    {
+        "question": "question1",
+        "answer": [
+            ["answer1", "track1"],
+            ["answer2", "track2"],
+            ["answer3", "track3"],
+            ["answer4", "track4"]
+        ],
+        "name": "Test2"
+    },
+    {
+        "question": "question1",
+        "answer": [
+            ["answer1", "track1"],
+            ["answer2", "track2"],
+            ["answer3", "track3"],
+            ["answer4", "track4"]
+        ],
+        "value": 0,
+        "name": "Test3"
+    }
+]
 
 // Syntax is: "questionInfo[0].question" to access question1 and "questionInfo[0].answer[n]" to access answer[n]
 //Note to John: I'm aware 'q' isn't a good descripter but I think its pretty straight-forward.
@@ -38,7 +51,7 @@ var answerRadio =
     (
         '<div class="radio">' +
         '<label>' +
-        '<input type="radio" class="answerSelector" name="test">' +
+        '<input type="radio" class="answerSelector">' +
         '</label>' +
         '</div>'
     );
@@ -55,8 +68,9 @@ function appendQuestions() {
         $(".question:last").append(questionInfo[i].question);
         for (var o = 0; o < questionInfo[i].answer.length; o++) {
             $(".answer:last").append(answerRadio);
-            $(".input:last").attr("name", questionInfo[i].name);
-            $("label:last").append(questionInfo[i].answer[o]);
+            $("input:last").attr("name", questionInfo[i].name);
+            $("input:last").attr("value", questionInfo[i].value)
+            $("label:last").append(questionInfo[i].answer[o][0]);
         }
     }
 
