@@ -1,20 +1,31 @@
 var questionInfo = 
     [   
-    {"question":"question1", "answer":["answer1","answer2","answer3"]},
+        {"question":"question1", "answer":["answer1","answer2","answer3"]},
        {"question":"question2", "answer":["answer1","answer2","answer3","answer4","answer5"]},
        {"":"","":[]}
     ]
-// Syntax is: "questionInfo.q[0].question" to access question1 and "questionInfo.q[0].answer[n]" to access answer[n]
+
+    var questionPanel = 
+    '<div class="container">' +
+        '<div class="panel panel-default">'+
+            '<div class="panel-heading">' +
+                '<h3>Test Heading</h3>' +
+            '</div>' +
+            '<div class="panel-body">' +
+                '<p>Test Body</p>' +
+            '</div>' +
+        '</div>' +
+    '</div>';
+
+
+// Syntax is: "questionInfo[0].question" to access question1 and "questionInfo[0].answer[n]" to access answer[n]
 //Note to John: I'm aware 'q' isn't a good descripter but I think its pretty straight-forward.
+//Thanks to https://stackoverflow.com/questions/1078118/how-do-i-iterate-over-a-json-structure for reference
 $(document).ready(function() {
-    for (var key in questionInfo.q)
+    $(document.body).append(questionPanel);
+
+    for (var i; i < questionInfo.length; i++)
     {
-        for ()
+       $(document.body).append(questionPanel);
     }
-    q[0].question 
-
-
-
-
-    questionInfo.questions.question1[0];
 })
