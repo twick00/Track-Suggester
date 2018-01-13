@@ -24,7 +24,7 @@ var questionInfo =
 $(document).ready(function() {
     $(document.body).append(questionPanel);
 
-    for (var i; i < questionInfo.length; i++)
+    for (var i = 0; i < questionInfo.length; i++)
     {
        $(document.body).append(questionPanel);
     }
