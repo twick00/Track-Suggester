@@ -6,4 +6,4 @@ I did not take performance into consideration so don't add too much to it or you
 * Author: Tyler Wickline
 * Infinitely Scalable Form
 * Instructions: Its broken right now but the scaling form actually does work. I just had trouble showing results.
-* Not sure what I should put for copyright/license info. 
+* Licensed under the GNU GENERAL PUBLIC LICENSE
