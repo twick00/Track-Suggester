@@ -1,3 +1,39 @@
 body {
     background-color: #9E9E9E;
 }
+.center-block {
+    text-align: center;
+}
+.row .btn {
+    display: inline-flex;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.dark-body {
+    background-color: #080808;
+    color: #fff;
+}
+.light-body {
+    background-color: #9E9E9E;
+    color: #333;
+}
+.dark-panel-body {
+    background-color: #080808;
+}
+.light-panel-body {
+    background-color: #fff;
+}
+.light-panel-heading {
+    background-color: #f5f5f5;
+    color: #333;
+}
+.panel-default>.dark-panel-heading {
+    background-color: #000000cf;
+    color: #fff;
+}
+#light-theme {
+    display: none;
+}
