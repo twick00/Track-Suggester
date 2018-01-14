@@ -42,7 +42,7 @@ var questionInfo = [{
         "value": 2
     }
 ]
-
+var reduced = [];
 // Syntax is: "questionInfo[0].question" to access question1 and "questionInfo[0].answer[n]" to access answer[n]
 //Note to John: I'm aware 'q' isn't a good descripter but I think its pretty straight-forward.
 //Thanks to https://stackoverflow.com/questions/1078118/how-do-i-iterate-over-a-json-structure for reference
@@ -78,6 +78,14 @@ var themes =
         '</div>' +
         '</div>'
     )
+var results = 
+    (
+        '<div class="container-fluid">' +
+        '<div class "row centered-form center-block">' +
+        '<h2 class="results"></h2>' +
+        '</div>' +
+        '</div>'
+    )
 
 
 //<input type="radio" name="activity" value="sonic"> Running
@@ -92,6 +100,7 @@ function appendQuestions() {
             $("label:last").append(questionInfo[i].answer[o][0]);
         }
     }
+    $(document.body).append(results);
 }
 $(document).ready(function () {
     //$(document.body).prepend('<div class="container">');
@@ -124,11 +133,34 @@ $(document).ready(function () {
         $("#light-theme").hide();
         $("#dark-theme").show();
     });
-
     $("#submit").click(function () {
-        $('input:checked').each(function () {
-            alert(questionInfo[this.name].answer[this.value[0]]);
-
+        answers = [];
+        $("input:checked").each(function () {
+            answers = answers.concat(
+                questionInfo[this.name].answer[this.value[0]][1]
+            );
         });
+        //console.log(answers);
+        // I'll be completely honest, this is pretty dense... https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+        countedAnswers = answers.reduce(
+            function (
+                allAnswers,
+                answer
+            ) {
+            if (answer in allAnswers) {
+                allAnswers[answer]++;
+            } else {
+                allAnswers[answer] = 1;
+            }
+            return allAnswers;
+        },{}); //But I figured it out eventually!
+        console.log(countedAnswers);
+        let keys = Object.keys(countedAnswers);
+        keys.sort(function(b,a) {return countedAnswers[a] - countedAnswers[b]});
+        console.log(keys);
+        console.log(keys.indexOf(0));
+        for (var orderedList in countedAnswers) {
+            console.log(ordered);
+        }
     });
 });
